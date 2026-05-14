@@ -31,4 +31,8 @@ public class CountryEmissionController {
     public CountryEmission create(@RequestBody CountryEmission emission) {
         return repository.save(emission);
     }
+    @GetMapping("/country/{name}")
+    public List<CountryEmission> getByCountry(@PathVariable String name) {
+        return repository.findByCountry(name);
+    }
 }
