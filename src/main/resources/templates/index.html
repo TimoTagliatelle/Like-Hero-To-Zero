@@ -20,96 +20,45 @@
 
 <body>
 
-<header class="container-fluid" id="page-header">
-  <div class="row flex-column flex-md-row align-items-center">
-
-    <div class="col-auto header-logo">
-      <a href="index.html">
-        <img class="img-fluid" src="GreenWatch Logo1.png" alt="Logo">
-      </a>
-    </div>
-
-    <div class="col header-searchnav">
-      <nav>
-        <ul class="d-flex align-items-center gap-3 list-unstyled mb-0">
-          <li><a href="vision.html">Vision</a></li>
-          <li><a href="tracking.html">Tracking</a></li>
-          <li><a href="funding.html">Funding</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-
+<header class="container-fluid py-3">
+  <div class="d-flex align-items-center gap-3">
+    <img src="GreenWatch Logo1.png" alt="Logo" style="height:50px;">
+    <h1 class="h4 m-0">CO₂ Emission Tracker</h1>
   </div>
 </header>
 
 <main class="container mt-4">
-  <h1>CO₂ Emission Tracker</h1>
 
   <p>
-    We visualize yearly CO₂ emissions of major companies and compare trends over time.
+    This dashboard visualizes yearly CO₂ emissions of countries.
   </p>
 
-  <h2>Dataset Overview</h2>
-
-  <div class="table-wrapper">
+  <div class="table-wrapper mt-3">
     <div id="co2-table"></div>
   </div>
+
 </main>
-
-<footer class="container mt-4">
-  <div class="d-flex justify-content-between align-items-center">
-
-    <ul class="list-unstyled d-flex gap-3 mb-0">
-      <li><a href="privacy.html">Privacy</a></li>
-      <li><a href="imprint.html">Imprint</a></li>
-    </ul>
-
-    <button class="btn btn-secondary btn-sm" id="toggle-dir-btn">
-      RTL
-    </button>
-
-  </div>
-</footer>
 
 <!-- Scripts -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
-  // RTL detection
-  const header = document.getElementById("page-header");
-  const btn = document.getElementById("toggle-dir-btn");
-
-  const rtlLanguages = ["ar", "he", "fa", "ur"];
-  const userLang = navigator.language.split("-")[0];
-
-  header.setAttribute("dir", rtlLanguages.includes(userLang) ? "rtl" : "ltr");
-
-  btn.addEventListener("click", function () {
-    const isRTL = header.getAttribute("dir") === "rtl";
-    header.setAttribute("dir", isRTL ? "ltr" : "rtl");
-    btn.textContent = isRTL ? "RTL" : "LTR";
-  });
-
-  // Table Data
   const tableData = [
-    { Country: "USA", Company: "Tesla", "2022": 4854, "2023": 4680 },
-    { Country: "Japan", Company: "Toyota", "2022": 1083, "2023": 1080 },
-    { Country: "Canada", Company: "General Motors", "2022": 520, "2023": 520 },
-    { Country: "Germany", Company: "BMW", "2022": 635, "2023": 940 },
-    { Country: "UK", Company: "Triumph", "2022": 345, "2023": 345 },
-    { Country: "Italy", Company: "Fiat Chrysler", "2022": 318, "2023": 318 },
-    { Country: "France", Company: "Renault", "2022": 270, "2023": 270 }
+    { Country: "USA", "2022": 4854, "2023": 4680 },
+    { Country: "Japan", "2022": 1083, "2023": 1080 },
+    { Country: "Canada", "2022": 520, "2023": 520 },
+    { Country: "Germany", "2022": 635, "2023": 940 },
+    { Country: "UK", "2022": 345, "2023": 345 },
+    { Country: "Italy", "2022": 318, "2023": 318 },
+    { Country: "France", "2022": 270, "2023": 270 }
   ];
 
-  // Tabulator Table
   new Tabulator("#co2-table", {
     data: tableData,
     layout: "fitColumns",
     placeholder: "No data available",
     columns: [
       { title: "Country", field: "Country", sorter: "string", headerFilter: "input" },
-      { title: "Company", field: "Company", sorter: "string", headerFilter: "input" },
       { title: "CO₂ 2022", field: "2022", sorter: "number" },
       { title: "CO₂ 2023", field: "2023", sorter: "number" }
     ]
