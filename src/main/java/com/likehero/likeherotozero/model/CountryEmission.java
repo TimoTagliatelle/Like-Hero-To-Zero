@@ -11,6 +11,7 @@ public class CountryEmission {
 
     private String country;
 
+    @Column(name = "emission_year")
     private int year;
 
     private double co2Emission;
