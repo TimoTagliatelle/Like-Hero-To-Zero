@@ -11,45 +11,25 @@ public class CountryEmission {
 
     private String country;
 
-    @Column(name = "emission_year")
-    private int year;
+    private Double co2Emission2022;
+    private Double co2Emission2023;
 
-    private double co2Emission;
+    public CountryEmission() {}
 
-    public CountryEmission() {
-    }
-
-    public CountryEmission(String country, int year, double co2Emission) {
+    public CountryEmission(String country, Double co2Emission2022, Double co2Emission2023) {
         this.country = country;
-        this.year = year;
-        this.co2Emission = co2Emission;
+        this.co2Emission2022 = co2Emission2022;
+        this.co2Emission2023 = co2Emission2023;
     }
 
-    public Long getId() {
-        return id;
-    }
+    public Long getId() { return id; }
 
-    public String getCountry() {
-        return country;
-    }
+    public String getCountry() { return country; }
+    public void setCountry(String country) { this.country = country; }
 
-    public void setCountry(String country) {
-        this.country = country;
-    }
+    public Double getCo2Emission2022() { return co2Emission2022; }
+    public void setCo2Emission2022(Double co2Emission2022) { this.co2Emission2022 = co2Emission2022; }
 
-    public int getYear() {
-        return year;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
-    }
-
-    public double getCo2Emission() {
-        return co2Emission;
-    }
-
-    public void setCo2Emission(double co2Emission) {
-        this.co2Emission = co2Emission;
-    }
+    public Double getCo2Emission2023() { return co2Emission2023; }
+    public void setCo2Emission2023(Double co2Emission2023) { this.co2Emission2023 = co2Emission2023; }
 }

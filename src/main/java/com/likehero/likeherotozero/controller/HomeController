@@ -1,0 +1,12 @@
+@Controller
+public class HomeController {
+
+    @Autowired
+    private CountryEmissionRepository repo;
+
+    @GetMapping("/")
+    public String home(Model model) {
+        model.addAttribute("data", repo.findAll());
+        return "index";
+    }
+}
