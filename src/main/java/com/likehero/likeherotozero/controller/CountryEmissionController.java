@@ -17,25 +17,18 @@ public class CountryEmissionController {
         this.repository = repository;
     }
 
-    // GET all
     @GetMapping
     public List<CountryEmission> getAll() {
         return repository.findAll();
     }
 
-    // GET by ID
     @GetMapping("/{id}")
     public CountryEmission getById(@PathVariable Long id) {
         return repository.findById(id).orElse(null);
     }
 
-    // POST new entry
     @PostMapping
     public CountryEmission create(@RequestBody CountryEmission emission) {
         return repository.save(emission);
     }
-}
-@GetMapping("/test")
-public String test() {
-    return "API OK";
 }

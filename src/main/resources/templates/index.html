@@ -43,24 +43,20 @@
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
-  const tableData = [
-    { Country: "USA", "2022": 4854, "2023": 4680 },
-    { Country: "Japan", "2022": 1083, "2023": 1080 },
-    { Country: "Canada", "2022": 520, "2023": 520 },
-    { Country: "Germany", "2022": 635, "2023": 940 },
-    { Country: "UK", "2022": 345, "2023": 345 },
-    { Country: "Italy", "2022": 318, "2023": 318 },
-    { Country: "France", "2022": 270, "2023": 270 }
-  ];
-
   new Tabulator("#co2-table", {
-    data: tableData,
+    ajaxURL: "http://localhost:8080/api/emissions",
     layout: "fitColumns",
-    placeholder: "No data available",
+    placeholder: "Keine Daten verfügbar",
+
     columns: [
-      { title: "Country", field: "Country", sorter: "string", headerFilter: "input" },
-      { title: "CO₂ 2022", field: "2022", sorter: "number" },
-      { title: "CO₂ 2023", field: "2023", sorter: "number" }
+      { title: "Country", field: "country", sorter: "string", headerFilter: "input" },
+      { title: "Company", field: "company", sorter: "string", headerFilter: "input" },
+      { title: "2022", field: "co2Emission2022", sorter: "number" },
+      { title: "2023", field: "co2Emission2023", sorter: "number" }
+    ],
+
+    initialSort: [
+      { column: "country", dir: "asc" }
     ]
   });
 
