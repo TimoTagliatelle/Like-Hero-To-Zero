@@ -21,12 +21,6 @@ public class HomeController {
         return "index";
     }
     @GetMapping("/admin")
-public String admin() {
-    System.out.println("ADMIN ROUTE HIT");
-    return "admin";
-}
-    // Admin-Seite (Thymeleaf View: admin.html)
-    @GetMapping("/admin")
     public String admin(Model model) {
         model.addAttribute("data", repo.findAll());
         return "admin";
