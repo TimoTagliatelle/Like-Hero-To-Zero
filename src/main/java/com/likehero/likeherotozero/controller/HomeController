@@ -1,3 +1,11 @@
+package com.likehero.likeherotozero.controller;
+
+import com.likehero.likeherotozero.repository.CountryEmissionRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
 @Controller
 public class HomeController {
 
@@ -8,5 +16,11 @@ public class HomeController {
     public String home(Model model) {
         model.addAttribute("data", repo.findAll());
         return "index";
+    }
+
+    @GetMapping("/admin")
+    public String admin(Model model) {
+        model.addAttribute("data", repo.findAll());
+        return "admin";
     }
 }

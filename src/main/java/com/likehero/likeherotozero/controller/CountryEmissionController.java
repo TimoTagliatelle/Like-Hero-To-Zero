@@ -28,8 +28,9 @@ public class CountryEmissionController {
     }
 
     @PostMapping
-    public CountryEmission create(@RequestBody CountryEmission emission) {
-        return repository.save(emission);
+    public String create(CountryEmission emission) {
+        repository.save(emission);
+        return "redirect:/admin";
     }
     @GetMapping("/country/{name}")
     public List<CountryEmission> getByCountry(@PathVariable String name) {
