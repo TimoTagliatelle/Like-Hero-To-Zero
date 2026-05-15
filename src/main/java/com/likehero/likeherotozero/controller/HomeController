@@ -23,4 +23,9 @@ public class HomeController {
         model.addAttribute("data", repo.findAll());
         return "admin";
     }
+@GetMapping("/admin")
+public String admin() {
+    System.out.println(">>> ADMIN ROUTE HIT");
+    return "admin";
+}
 }
