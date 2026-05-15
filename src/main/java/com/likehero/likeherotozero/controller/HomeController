@@ -1,7 +1,6 @@
 package com.likehero.likeherotozero.controller;
 
 import com.likehero.likeherotozero.repository.CountryEmissionRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,15 +8,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class HomeController {
 
-    @Autowired
-    private CountryEmissionRepository repo;
+    private final CountryEmissionRepository repo;
 
+    public HomeController(CountryEmissionRepository repo) {
+        this.repo = repo;
+    }
+
+    // Startseite
     @GetMapping("/")
     public String home(Model model) {
         model.addAttribute("data", repo.findAll());
         return "index";
     }
 
+    // Admin-Seite (Thymeleaf View: admin.html)
     @GetMapping("/admin")
     public String admin(Model model) {
         model.addAttribute("data", repo.findAll());
