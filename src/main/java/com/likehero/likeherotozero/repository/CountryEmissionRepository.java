@@ -8,4 +8,5 @@ import java.util.List;
 public interface CountryEmissionRepository extends JpaRepository<CountryEmission, Long> {
 
    List<CountryEmission> findByCountry(String country);
+   List<CountryEmission> findByApprovedTrue();
 }

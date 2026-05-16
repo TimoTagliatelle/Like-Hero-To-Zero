@@ -14,6 +14,8 @@ public class CountryEmission {
     private Double co2Emission2022;
     private Double co2Emission2023;
 
+    private boolean approved = false;
+
     public CountryEmission() {}
 
     public CountryEmission(String country, Double co2Emission2022, Double co2Emission2023) {
@@ -32,4 +34,12 @@ public class CountryEmission {
 
     public Double getCo2Emission2023() { return co2Emission2023; }
     public void setCo2Emission2023(Double co2Emission2023) { this.co2Emission2023 = co2Emission2023; }
+
+    public boolean isApproved() {
+    return approved;
+    }
+
+    public void setApproved(boolean approved) {
+        this.approved = approved;
+    }
 }

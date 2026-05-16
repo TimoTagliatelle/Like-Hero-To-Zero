@@ -34,8 +34,39 @@
     <button type="submit" class="btn btn-success">
         Speichern
     </button>
-
 </form>
+
+<hr>
+
+<h3>Bestehende Einträge</h3>
+
+<table class="table table-striped mt-3">
+    <thead>
+        <tr>
+            <th>Country</th>
+            <th>2022</th>
+            <th>2023</th>
+            <th>Approved</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="item : ${data}">
+        <td th:text="${item.country}"></td>
+        <td th:text="${item.co2Emission2022}"></td>
+        <td th:text="${item.co2Emission2023}"></td>
+        <td th:text="${item.approved}"></td>
+
+        <td>
+            <a th:href="@{'/admin/approve/' + ${item.id}}"
+               class="btn btn-success btn-sm">
+                Approve
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
 
 </body>
 </html>
