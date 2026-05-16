@@ -2,6 +2,7 @@ package com.likehero.likeherotozero.controller;
 
 import com.likehero.likeherotozero.model.CountryEmission;
 import com.likehero.likeherotozero.repository.CountryEmissionRepository;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
