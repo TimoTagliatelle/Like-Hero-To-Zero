@@ -2,6 +2,7 @@ package com.likehero.likeherotozero.controller;
 
 import com.likehero.likeherotozero.model.CountryEmission;
 import com.likehero.likeherotozero.repository.CountryEmissionRepository;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,11 +28,6 @@ public class CountryEmissionController {
         return repository.findById(id).orElse(null);
     }
 
-    @PostMapping
-    public String create(CountryEmission emission) {
-        repository.save(emission);
-        return "redirect:/admin";
-    }
     @GetMapping("/country/{name}")
     public List<CountryEmission> getByCountry(@PathVariable String name) {
         return repository.findByCountry(name);
